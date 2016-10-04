@@ -6,7 +6,8 @@ app.config(function (localStorageServiceProvider) {
       .setPrefix('scotch-todo');
   });
 
-app.controller('main', function ($scope, $ionicModal, localStorageService) { //store the entities name in a variable var taskData = 'task';
+app.controller('main', function ($scope, $ionicModal, localStorageService) { //store the entities name in a variable
+var taskData = 'task';
 
 //initialize the tasks scope with empty array
 $scope.tasks = [];
@@ -51,4 +52,13 @@ $scope.completeTask = function () {
     
     localStorageService.set(taskData, $scope.tasks); 
 }
+    //open modal
+    $scope.openTaskModal = function () {
+        $scope.newTaskModal.show();
+    }
+
+    //close modal
+    $scope.closeTaskModal = function () {
+        $scope.newTaskModal.hide();
+    }
 })
